@@ -33,6 +33,10 @@ void loop() {
       max_i = i;
     }
   }
+  Serial.print("x");
+  Serial.println(pos[0]);
+  Serial.print("z");
+  Serial.println(pos[1]);
   sum /= 4;
   delay(10); // Pls calm down you are moving too fast
   if (sum > 100) { // Sensitivity (magic number)
@@ -54,6 +58,11 @@ void loop() {
         pos[1]++;
         break;
     }
+    // Moving range
+    if (pos[0] < 0) pos[0] = 0;
+    else if (pos[0] > 180) pos[0] = 180;
+    if (pos[1] < 90) pos[1] = 90;
+    else if (pos[1] > 170) pos[1] = 170;
     myservox.write(pos[0]);
     myservoz.write(pos[1]);
   }
