@@ -35,7 +35,7 @@ void loop() {
   }
   sum /= 4;
   delay(10); // Pls calm down you are moving too fast
-  if (sum > 100) {
+  if (sum > 100) { // Sensitivity (magic number)
     switch (max_i) { // Moving direction
       case 1: // Down left
         pos[0]--;
